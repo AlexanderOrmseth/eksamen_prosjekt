@@ -35,3 +35,9 @@ nav.main-nav {
 nav.main-nav > div + div {
   margin-top: 0.5em;
 }
+.hide-add-section{
+  display: none;
+}
+.show-add-section{
+  display: inline;
+}
