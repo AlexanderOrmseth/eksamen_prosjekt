@@ -1,5 +1,6 @@
 // tabs
 const tabs = document.querySelectorAll('.tabs li');
+const searchTxt = document.querySelector("#search-txt");
 const tabContent = document.querySelectorAll('#tab-content > div');
 
 tabs.forEach((tab) => {
