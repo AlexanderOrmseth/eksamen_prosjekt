@@ -11,6 +11,21 @@ img {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1em;
 }
+
+.menu-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-actions > .control {
+  margin-right: 1rem;
+  max-width: 400px;
+  width: 100%;
+}
+.menu-actions > button {
+}
+
 .field-actions {
   margin-top: 1.4em;
 }
@@ -52,4 +67,22 @@ img {
 }
 #modal h2 > span {
   color: #3273dc;
+}
+#modal .modal-content {
+  margin: 0;
+}
+
+@media only screen and (max-width: 830px) {
+  #menu {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #menu {
+    grid-template-columns: 1fr;
+  }
+  .card img {
+    width: 100%;
+  }
 }

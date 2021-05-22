@@ -36,11 +36,21 @@
         <h2 class="title is-2">Meny</h2>
         <!-- menyen -->
         <div class="menu-wrap">
-          <div class="content">
-            <button class="button is-link" onclick="openModal(ADD)">
+          <div class="content menu-actions">
+            <div class="control">
+              <input
+                autocomplete="off"
+                placeholder="Søk etter produkt..."
+                onkeyup="handleSearchChanged()"
+                id="search"
+                class="input"
+              />
+            </div>
+            <button class="button is-link" onclick="openModal()">
               Legg til nytt produkt
             </button>
           </div>
+
           <div id="menu" class="content"></div>
         </div>
       </div>

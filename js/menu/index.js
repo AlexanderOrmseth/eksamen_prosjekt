@@ -2,16 +2,27 @@ const output = document.getElementById("menu");
 const modalOverlay = document.getElementById("modal-overlay");
 const modal = document.getElementById("modal");
 
-// Action types
-const DELETE = "Delete";
-const ADD = "Add";
-const EDIT = "Edit";
-
 let products = [...menu];
 
-// output menu items
+// render menu items
 const renderProducts = (arr = products) => {
   output.innerHTML = arr.map((product) => Product(product)).join("");
+};
+
+// search
+const handleSearchChanged = () => {
+  const searchTerm = document
+    .getElementById("search")
+    ?.value.trim()
+    .toLowerCase();
+  if (searchTerm.length > 0) {
+    const filteredProducts = products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm)
+    );
+    renderProducts(filteredProducts);
+  } else {
+    renderProducts();
+  }
 };
 
 // Get product by id
@@ -21,12 +32,11 @@ const productById = (id) => products.find((product) => product.id == id);
 const closeModal = () => (modalOverlay.style.display = "none");
 
 // Open Modal
-const openModal = (action, id = null) => {
+const openModal = (del = false, id = null) => {
   modalOverlay.style.display = "block";
   const product = id && productById(id);
   // render content depending on action
-  modal.innerHTML =
-    action === DELETE ? deleteModule(product) : addEditModal(product);
+  modal.innerHTML = del ? deleteModule(product) : addEditModal(product);
 };
 
 // Delete product by id
@@ -115,13 +125,13 @@ const Product = (product) =>
       <div class="field is-grouped">
         <p class="control">
           <button class="button" onclick="openModal(${[
-            "EDIT",
+            false,
             product.id,
           ]})">Rediger</button>
         </p>
         <p class="control">
           <button class="button is-danger is-light" onclick="openModal(${[
-            "DELETE",
+            true,
             product.id,
           ]})">Slett</button>
         </p>
@@ -151,7 +161,7 @@ const addEditModal = (product = null) =>
       <div class="field">
         <label class="label" for="product-title">Produktnavn</label>
         <div class="control">
-          <input class="input" id="product-title" value="${
+          <input class="input" id="product-title" autocomplete="off" value="${
             product?.title || ""
           }" name="product-title" />
         </div>
@@ -159,7 +169,7 @@ const addEditModal = (product = null) =>
       <div class="field">
         <label class="label" for="product-price">Pris</label>
         <div class="control">
-          <input class="input" id="product-price" value="${
+          <input class="input" autocomplete="off" id="product-price" value="${
             product?.price || ""
           }" name="product-price" />
         </div>
@@ -188,7 +198,7 @@ const addEditModal = (product = null) =>
         <div class="field form-field-ingredients">
           <label class="label" for="product-ingredients">Ingredienser</label>
           <div class="control">
-            <input class="input" name="product-ingredients" id="product-ingredients" value="${
+            <input class="input" autocomplete="off" name="product-ingredients" id="product-ingredients" value="${
               product?.ingredients || ""
             }" />
           </div>
