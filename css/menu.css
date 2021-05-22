@@ -29,7 +29,11 @@ img {
 .field-actions {
   margin-top: 1.4em;
 }
-.card-content p > span {
+.bold {
+  margin-left: 0.4rem;
+}
+.card-content p > span,
+.bold {
   font-weight: 700;
 }
 .card {

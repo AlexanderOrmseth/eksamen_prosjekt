@@ -19,7 +19,11 @@ const handleSearchChanged = () => {
     const filteredProducts = products.filter((product) =>
       product.title.toLowerCase().includes(searchTerm)
     );
-    renderProducts(filteredProducts);
+    if (filteredProducts.length > 0) {
+      renderProducts(filteredProducts);
+    } else {
+      output.innerHTML = `<p class="tag is-large is-warning is-light">Ingen produkt funnet med søket: <span class="bold">${searchTerm}</span></p>`;
+    }
   } else {
     renderProducts();
   }
