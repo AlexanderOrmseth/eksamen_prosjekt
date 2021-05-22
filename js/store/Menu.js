@@ -64,7 +64,7 @@ const menu = [
     id: 9,
     title: "Vin",
     price: 120,
-    imgSrc: "placeholder.png",
+    imgSrc: "vin.jpeg",
     type: "drink",
   },
 ];
