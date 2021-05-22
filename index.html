@@ -4,26 +4,126 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gyldne Pizza</title>
+    <title>Gyldne Pizza - restauranter</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
 
     <!-- css -->
     <link rel="stylesheet" href="css/main.css" />
 
     <!-- scripts -->
+    <script defer type="module" src="/js/restaurants/index.js"></script>
   </head>
+
   <body>
     <div class="wrap">
-      <header>
-        <h1 class="title">Gyldne Pizza</h1>
-      </header>
-
       <!-- Link til de ulike sidene -->
-      <nav class="main-nav">
-        <div><a href="employees.html">ansatte</a></div>
-        <div><a href="restaurants.html">restauranter</a></div>
-        <div><a href="sales.html">salg</a></div>
-        <div><a href="menu.html">meny</a></div>
+      <nav class="navbar is-white">
+        <div class="navbar-start">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="index.html"><h1>Gyldne Pizza</h1></a>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <a class="navbar-item" href="employees.html">ansatte</a>
+          <a class="navbar-item" href="menu.html">meny</a>
+          <a class="navbar-item" href="sales.html">salg</a>
+          <a class="navbar-item is-active" href="index.html">restauranter</a>
+        </div>
       </nav>
+
+      <!-- Start på container -->
+      <div class="container">
+        <main>
+          <header class="is-size-3 pt-6">
+            <h1>Restauranter</h1>
+          </header>
+
+          <!-- Start på tab-bar section -->
+          <section class="tabs is-large columns is-centered">
+            <article class="column">
+              <ul>
+                <li class="is-active" data-target="kj-content">
+                  <a>Karl Johan</a>
+                </li>
+                <li data-target="operaen-content"><a>Operaen</a></li>
+                <li data-target="stovner-content"><a>Stovner</a></li>
+                <li data-target="bislett-content"><a>Bislett</a></li>
+              </ul>
+            </article>
+
+            <article class="column">
+              <div class="navbar-end px-6 pt-5">
+                <input
+                  id="search-txt"
+                  class="input"
+                  type="text"
+                  placeholder="Søk restaurant..."
+                />
+              </div>
+            </article>
+          </section>
+          <!-- Slutt på tab-bar section -->
+
+          <!-- Start på innhold om restaurantene -->
+          <section id="tab-content" class="pt-6">
+            <div id="kj-content">
+              <h1 class="is-size-4">ID: 1</h1>
+              <h2 class="has-text-weight-bold">Lokasjon: Karl Johan</h2>
+              <p>Åpningstider: kl. 11-00</p>
+              <p>Tlf: 71582859</p>
+              <p>Daglid leder - Børge Hovde. Adresse: Olaf Ryes Plass 1C</p>
+              <p>Kjøkkensjef - Markus Vigre. Adresse: Sollis Gate 14</p>
+              <p>Kokk - Jacob Engh. Adresse: Kroksvingen 11</p>
+              <p>Servitør - Frida Karlsen. Adresse: Løpebane 48</p>
+              <p>Renholder - Magnus Hansen. Adresse: Pizzaveien 44</p>
+              <img src="images/1.jpg" alt="Karl Johan bilde" />
+            </div>
+
+            <div id="operaen-content" class="is-hidden">
+              <h1 class="is-size-4">ID: 2</h1>
+              <h2 class="has-text-weight-bold">Lokasjon: Operaen</h2>
+              <p>Åpningstider: kl. 11-00</p>
+              <p>Tlf: 92938283</p>
+              <p>Daglig leder - Roy Johansen. Adresse: Tjuvholmen 121A</p>
+              <p>Kjøkkensjef - Petter Andersen. Adresse: Tulipanhagen 12A</p>
+              <p>Kokk - Thomas Bråthen. Adresse: Svovelveien 3B</p>
+              <p>Servitør - Kristoffer Fossen. Adresse: Dronningsgate 70D</p>
+              <p>Renholder - Hans Reitan. Adresse: Kråkestien 21</p>
+              <img src="images/2.jpg" alt="Operaen bilde" />
+            </div>
+
+            <div id="stovner-content" class="is-hidden">
+              <h1 class="is-size-4">ID: 3</h1>
+              <h2 class="has-text-weight-bold">Lokasjon: Stovner</h2>
+              <p>Åpningstider: kl. 11-22</p>
+              <p>Tlf: 60003005</p>
+              <p>Daglig leder - Riad Hamli. Adresse: Kakesvingen 15B</p>
+              <p>Kjøkkensjef - Kawthar Mohamed. Adresse: Kirkeplassen 91</p>
+              <p>Kokk - Stein Tran. Adresse: Langgata 7C</p>
+              <p>Servitør - Liri Haziri. Adresse: Fiskevegen 11</p>
+              <p>Renholder - Abdi Dahli. Strandgata 77D</p>
+              <img src="images/3.png" alt="Stovner bilde" />
+            </div>
+
+            <div id="bislett-content" class="is-hidden">
+              <h1 class="is-size-4">ID: 4</h1>
+              <h2 class="has-text-weight-bold">Lokasjon: Bislett</h2>
+              <p>Åpningstider: kl. 11-23</p>
+              <p>Tlf: 90901090</p>
+              <p>Daglig leder - Anne Antonsen. Adresse: Kebabsvingen 15C</p>
+              <p>Kjøkkensjef - Liv Aarskog. Adresse: Teisenkrysset 10</p>
+              <p>Kokk - Nicoline Solli. Adresse: Vepsebolveien 28</p>
+              <p>Servitør - Benedicte Bjørk. Adresse: Storgata 8B</p>
+              <p>Renholder - Heidi Rusten. Adresse: Ole Brumms Vei 191</p>
+              <img src="images/4.png" alt="Bislett bilde" />
+            </div>
+          </section>
+          <!-- Slutt på innhold om restaurantene -->
+        </main>
+      </div>
     </div>
   </body>
 </html>
