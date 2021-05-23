@@ -29,15 +29,20 @@ div.wrap {
   padding: 0 1em;
 }
 
-nav.main-nav {
+nav.navbar {
   margin: 1em 0;
 }
-nav.main-nav > div + div {
-  margin-top: 0.5em;
+nav.navbar .navbar-item {
+  font-size: 18px;
 }
-.hide-add-section{
+nav.navbar .navbar-item h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.hide-add-section {
   display: none;
 }
-.show-add-section{
+.show-add-section {
   display: inline;
 }

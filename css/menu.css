@@ -1,0 +1,92 @@
+img {
+  display: block;
+}
+
+.menu-wrap {
+  margin-bottom: 2em;
+}
+
+#menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.menu-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-actions > .control {
+  margin-right: 1rem;
+  max-width: 400px;
+  width: 100%;
+}
+.menu-actions > button {
+}
+
+.field-actions {
+  margin-top: 1.4em;
+}
+.bold {
+  margin-left: 0.4rem;
+}
+.card-content p > span,
+.bold {
+  font-weight: 700;
+}
+.card {
+  transition: 0.1s all cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.card:hover {
+  box-shadow: rgb(10 10 10 / 20%) 0px 0.5em 1em -0.125em,
+    rgb(10 10 10 / 5%) 0px 0px 0px 1px;
+}
+.invis {
+  color: transparent;
+}
+
+#modal {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  border: 1px solid rgb(131, 131, 131);
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding: 20px;
+  margin-right: -50%;
+  max-width: 1100px;
+  transform: translate(-50%, -50%);
+  box-shadow: rgb(0 0 0 / 10%) 0px 1.6px 3.6px 0px,
+    rgb(0 0 0 / 22%) 0px 0.3px 0.9px 0px;
+}
+#modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+#modal h2 {
+  margin-bottom: 1rem;
+}
+#modal h2 > span {
+  color: #3273dc;
+}
+#modal .modal-content {
+  margin: 0;
+}
+
+@media only screen and (max-width: 830px) {
+  #menu {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #menu {
+    grid-template-columns: 1fr;
+  }
+  .card img {
+    width: 100%;
+  }
+}
