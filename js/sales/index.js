@@ -1,25 +1,48 @@
-import sales from "../store/Sales.js";
 import restaurants from '../modules/RestaurantModule.js';
 import menu from "../store/Menu.js";
+import Sales from "../store/Sales.js";
 
 const dropDownBtn = document.querySelector(".button");
 const dropDownMenu = document.querySelector(".dropdown");
-const dropdownContent = document.querySelector(".dropdown-content");
+
 const addSection = document.querySelector(".hide-add-section");
 const selectSoldItemDropdown = document.querySelector(".select-sold-item-dropdown");
+const restaurantDiv = document.querySelector(".resturant-sales");
 
-const getRestaurantStates = (name) => {
 
-    sales.forEach(sale => res.name === name)
+const greetByTime = () => {
+    var dt = new Date();
+    var tm = dt.getHours();
+    var greeting =
+        tm = 0 && tm < 6 ? "God natt" :
+        tm >= 6 && tm < 9 ? "God morgen" :
+        tm >= 9 && tm < 12 ? "God formiddag" :
+        tm >= 12 && tm < 18 ? "God ettermiddag" :
+        "God Kveld";
+
+    return greeting;
 }
 
 
+
+const greetUser = (time) => {
+    const greetDiv = document.querySelector(".greet-div");
+    greetDiv.innerHTML += `
+        <h3> ${greetByTime()} </h3>
+     `;
+
+
+
+}
+
 const displayResturantsInDropDown = (() => {
+    greetUser();
+    const dropdownContent = document.querySelector(".dropdown-content");
     restaurants.getAll().forEach(restaurant => {
         dropdownContent.innerHTML += `
-            <a href="#" class="dropdown-item">
-        ${restaurant.location}
-          </a>
+                    <option  value=${restaurant.restaurantId} href="#" class="dropdown-item">
+                ${restaurant.location}
+        </option>
             `;
 
     });
@@ -49,15 +72,137 @@ const showMenuTitle = () => {
 }
 
 
-const checkChoiceAndAddToStats = () => {
+
+const showStats = (resName, allSales) => {
+    let pizza = 0;
+    let pizzaProfit = 0;
+    let drinks = 0;
+    let drinkProfit = 0;
+
+    allSales.forEach(s => {
+
+        if (s.type === "pizza") {
+            pizza += s.numberOfSales;
+            pizzaProfit += s.price * s.numberOfSales;
+            
+        }
+
+        if (s.type === "drink") {
+            drinks += s.numberOfSales;
+            drinkProfit += s.price * s.numberOfSales;
+        }
+
+    })
+
+
+    let totalProfit = pizzaProfit + drinkProfit;
+
+
+    restaurantDiv.innerHTML = `
+        <h3>${resName}</h3>
+         <p> Antall pizzaer solgt: ${pizza}  tjent ${pizzaProfit}</p>
+         <p> Antall drikker solgt: ${drinks}  tjent ${drinkProfit}</p>
+         <p> Total: ${totalProfit} ,- </p>
+     `;
+
+}
+
+
+const showAllStats = () => {
+
+    let allProfit = 0;
+    const mostPopularDish = "";
+    const leastPopularDish = "";
+
+    const sales = Sales.allSales;
+
+    sales.forEach(s => {
+        allProfit += s.price * s.numberOfSales;
+
+    })
+
+
+    restaurantDiv.innerHTML = `
+
+    <h3> Total profit mellom alle resturantente: ${allProfit} .- </h3>
+    
+    
+    `;
+
+}
+
+
+const updateStats = (item) => {
+    const sales = Sales.allSales;
+
+    const restaurantID = item.value
+    let resName = "";
+
+
+    restaurants.getAll().forEach(r => {
+        if (r.restaurantId === parseInt(restaurantID)) {
+            resName = r.location;
+            return;
+        }
+
+    })
+
+
+    if (resName === "" && sales.size > 0) {
+        showAllStats();
+    } else if (sales.size > 0) {
+
+        const allSales = [];
+
+        sales.forEach(s => {
+            if (s.restaurantID === parseInt(restaurantID)) {
+                allSales.push(s);
+            }
+        })
+
+        showStats(resName, allSales);
+
+
+    }
+
+}
+
+
+const addToChart = (id, amt, res) => {
+
+    menu.forEach(item => {
+
+        if (item.id == id) {
+            Sales.addSale(item, amt, res.value);
+            return;
+        }
+
+    })
+
+
+}
+
+const checkChoiceAndAddToStats = (item) => {
     addSection.className = "show-add-section";
 
     const addBtn = document.querySelector(".add-button");
-    const menuTitles = document.querySelectorAll(".menu-title");
+    const menuTitles = document.querySelector(".select-sold-item-dropdown");
 
     addBtn.onclick = () => {
+        const selectedIndex = menuTitles.options[menuTitles.selectedIndex].value
+        let amt = document.querySelector(".input");
+        let amtValue = amt.value;
 
-        console.log(menuTitles);
+        if (amtValue === "") {
+            amtValue = 1;
+        } else {
+            amtValue = parseInt(amtValue);
+        }
+
+
+        addToChart(selectedIndex, amtValue, item);
+        updateStats(item)
+        amt.value = "";
 
 
     }
@@ -72,42 +217,8 @@ dropdownItems.forEach(item => {
     item.onclick = () => {
         showMenuTitle();
         showRestuarantInDropDown();
-        showRestuarantStats(item)
-        checkChoiceAndAddToStats();
+        updateStats(item)
+        checkChoiceAndAddToStats(item);
     };
 
 })
-
-
-
-
-
-
-const showRestuarantStats = (item) => {
-
-
-    const restaurantDiv = document.querySelector(".resturant-sales");
-    const restaurantName = item.innerHTML.trim();
-
-
-    restaurantDiv.innerHTML = `
-        <h3> ${restaurantName} </h3>
-        <p> Antall pizzaer solgt: 0 </p>
-        <p> Antall drikker solgt: 0 </p>
-        <p> total solgte varer: 0 </p>
-    `;
-
-}
-
-
-
-
-
-
-
-/*
-SHOW TOTAL SALES FOR ALL RESTURANTS
-CHECK IF SALES GOAL IS MET IF ITS NOT MET SHOW DIFFERANCE
-SHOW WHAT EACH RESTURANT SOLD/WEATHER OR NOT THEY MET THE GOAL
-
-*/
