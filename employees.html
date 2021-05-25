@@ -1,54 +1,167 @@
 <!DOCTYPE html>
 <html lang="no">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gyldne Pizza - ansatte</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" />
 
     <!-- css -->
     <link rel="stylesheet" href="css/main.css" />
 
-    <!-- scripts -->
     <script defer type="module" src="/js/restaurants/index.js"></script>
-  </head>
-  <body>
-    <div class="wrap">
-      
 
-      <!-- Link til de ulike sidene -->
-      <nav class="navbar is-white">
-        <div class="navbar-start">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="index.html"><h1>Gyldne Pizza</h1></a>
-          </div>
+    
+</head>
+
+<body>
+
+
+    <!-- Start på container -->
+    <div class="container">
+
+        <div class="wrap">
+            <!-- Link til de ulike sidene -->
+            <nav class="navbar is-white">
+                <div class="navbar-start">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="index.html">
+                            <h1>Gyldne Pizza</h1>
+                        </a>
+                    </div>
+                </div>
+                <div class="navbar-end">
+                    <a class="navbar-item" href="employees.html">ansatte</a>
+                    <a class="navbar-item" href="menu.html">meny</a>
+                    <a class="navbar-item" href="sales.html">salg</a>
+                    <a class="navbar-item is-active" href="index.html">restauranter</a>
+                </div>
+            </nav>
+
+            <main>
+
+                <!-- Start på tab-bar section -->
+                <section class="tabs is-large columns is-centered pt-6">
+                    <article class="column">
+                        <ul>
+                            <li class="is-active" data-target="kj-content"><a>Karl Johan</a></li>
+                            <li data-target="operaen-content"><a>Operaen</a></li>
+                            <li data-target="stovner-content"><a>Stovner</a></li>
+                            <li data-target="bislett-content"><a>Bislett</a></li>
+                        </ul>
+                    </article>
+                </section>
+                <!-- Slutt på tab-bar section -->
+
+                <!-- Start på innhold om ansatte -->
+                <section id="tab-content" class="pt-2">
+                    <div id="kj-content">
+                        <h1 class="col-md-3 text-center">Karl Johan</h1>
+                        <img src="images-employees/1.jpg" class="img-responsive">
+                            <h2>Børge Hovde</h2>
+                            <h3>Dagligleder</h3>
+                            <p>Adresse: Olaf ryes plass 1c </p>
+                        <img src="images-employees/2.jpg" class="img-resposive">
+                            <h2>Markus Vigre </h2>
+                            <h3>Kjøkkensjef</h3>
+                            <p>Adresse: Sollis gate 14</p>
+                        <img src="images-employees/3.jpg" class="img-responsive">
+                            <h2>Jacob Engh</h2>
+                            <h3>Kokk</h3>
+                            <p>Adresse: Kroksvingen 11</p>
+                        <img src="images-employees/4.jpg" class="img-responsive">
+                            <h2>Magnus Hansen</h2>
+                            <h3>Renholder </h3>
+                            <p>Adresse: Pizzaveien 44 </p>
+                        <img src="images-employees/5.jpg" class="img-responsive">
+                            <h2>Jasper Shala</h2>
+                            <h3>Servitør</h3>
+                            <p>Adresse: Majorstuveien 3 </p>
+                    </div>
+
+                    <div id="operaen-content" class="is-hidden">
+                        <h1 class="is-size-3 has-text-weight-bold">Operaen</h1>
+                        <img src="images-employees/6.jpg" class="img-responsive">
+                            <h2>Roy johansen</h2>
+                            <h3>Daglig leder</h3>
+                            <p>Adresse: Tjuvholmen 121A</p>
+                        <img src="images-employees/7.jpg" class="img-resposive">
+                            <h2>Petter Andersen</h2>
+                            <h3>Kjøkkensjef</h3>
+                            <p>Adresse: Tulipanhagen 12A</p>
+                        <img src="images-employees/8.jpg" class="img-responsive">
+                            <h2>Thomas Bråthen</h2>
+                            <h3>Kokk</h3>
+                            <p>Adresse: Svovelveien 3B</p>
+                        <img src="images-employees/9.jpg" class="img-responsive">
+                            <h2>Kristoffer Fosen</h2>
+                            <h3>Servitør</h3>
+                            <p>Adresse: Dronningsgate 7D</p>
+                        <img src="images-employees/10.jpg" class="img-responsive">
+                            <h2>Hans Reitan</h2>
+                            <h3>Renholder</h3>
+                            <p>Adresse: Konges gate 2C</p>    
+
+                    </div>
+
+                    <div id="stovner-content" class="is-hidden">
+                        <h1 class="is-size-3 has-text-weight-bold">Stovner</h1>
+                        <img src="images-employees/11.jpg" class="img-responsive">
+                            <h2>Riad Hamli</h2>
+                            <h3>Dagligleder</h3>
+                            <p>Adresse:Kakesvingen 15</p>
+                        <img src="images-employees/12.jpg" class="img-responsive">
+                            <h2>Kawthar Mohamed</h2>
+                            <h3>Kjøkkensjef</h3>
+                            <p>Adresse:  Kirkeplassen 91 </p>
+                        <img src="images-employees/13.jpg" class="img-responsive">
+                            <h2>Stein Tran</h2>
+                            <h3>Kokk</h3>
+                            <p>Adresse:Trangata 7C </p>
+                        <img src="images-employees/14.jpg" class="img-responsive">
+                            <h2>Abdi Dahli<h2>
+                            <h3>Renholder</h3>
+                            <p>Adresse:Strandgata 77D</p>
+                        <img src="images-employees/15.jpg" class="img-responsive">
+                            <h2>Liri Haziri</h2>
+                            <h3>Servitør</h3>
+                            <p>Adresse:Fiskevegen 11</p>
+              
+                    </div>
+
+                    <div id="bislett-content" class="is-hidden">
+                        <h1 class="is-size-3 has-text-weight-bold">Bislett</h1>
+                        <img src="images-employees/16.jpg" class="img-responsive">
+                            <h2>Anne Antonsen</h2>
+                            <h3>Daglig leder</h3>
+                            <p>Adresse: Kebabsvingen 15C</p>
+                        <img src="images-employees/17.jpg" class="img-responsive">
+                            <h2>Liv Aarskog</h2>
+                            <h3>Kjøkkensjef</h3>
+                            <p>Adresse: Blomsterengen 2</p>
+                        <img src="images-employees/18.jpg" class="img-responsive">
+                            <h2>Nicoline Solli</h2>
+                            <h3>Kokk</h3>
+                            <p>Adresse: Gabels gate 12</p>
+                        <img src="images-employees/19.jpg" class="img-responsive">
+                            <h2>Heidi Rusten</h2>
+                            <h3>Servitør</h3>
+                            <p>Adresse: Dronningsgate 10E</p>
+                        <img src="images-employees/20.jpg" class="img-responsive">
+                            <h2>Benedicte Bjørk</h2>
+                            <h3>Renholder</h3>
+                            <p>Adresse: Storgata 8B</p> 
+
+                    </div>
+                </section>
+                <!-- Slutt på innhold om ansatte -->
+
+            </main>
         </div>
-        <div class="navbar-end">
-          <a class="navbar-item is-active" href="employees.html">ansatte</a>
-          <a class="navbar-item" href="menu.html">meny</a>
-          <a class="navbar-item" href="sales.html">salg</a>
-          <a class="navbar-item" href="index.html">restauranter</a>
-        </div>
-      </nav>
 
-      <!-- Start på container -->
-      <div class="container">
+    </div>
+</body>
 
-        <main>
-        
-          <header class="is-size-3 ">
-            <h1>Ansatte</h1>
-          </header>
-
-          <!-- Start på tab-bar section -->
-            <section class="tabs is-large columns is-centered">
-              <article class="column">
-                <ul>
-                  <li data-target="operaen-content"><a href="Operaen.html">Operaen</a></a></li>
-                  <li data-target="operaen-content"><a href="KarlJohan.html">Karl Johan</a></a></li>
-                  <li data-target="operaen-content"><a href="Stovner.html">Stovner</a></a></li>
-                  <li data-target="bislett-content"><a href="Bislett.html">Bislett</a></li>
-                </ul>
-              </article>
-            </section> <!-- Slutt på tab-bar section -->
+</html>
