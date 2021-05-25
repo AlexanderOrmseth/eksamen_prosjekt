@@ -68,4 +68,3 @@ const menu = [
     type: "drink",
   },
 ];
-export default menu;

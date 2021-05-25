@@ -1,106 +1,94 @@
 <!DOCTYPE html>
 <html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gyldne Pizza - ansatte</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gyldne Pizza - ansatte</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
 
-  <!-- css -->
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- scripts -->
+    <script src="/js/store/Menu.js"></script>
+    <script defer type="module" src="./js/Sales/index.js"></script>
+  </head>
 
-  <!-- scripts -->
-  <script defer type="module" src="./js/Sales/index.js"></script>
-</head>
-
-<body>
-  <div class="wrap">
-    <header>
-      <h1 class="title">Gyldne Pizza</h1>
-    </header>
-
-    <!-- Link til de ulike sidene -->
-    <nav class="main-nav">
-      <div><a href="employees.html">ansatte</a></div>
-      <div><a href="restaurants.html">restauranter</a></div>
-      <div><a href="sales.html">salg</a></div>
-      <div><a href="menu.html">meny</a></div>
-    </nav>
-
-    <div class="content">
-      <h2>Salg....</h2>
-      <!-- salg.... -->
-
-
-      <section class="greet-div">
-
-      </section>
-
-
-      <section>
-
-        <div class="dropdown">
-          <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-              <span>Velg resturant</span>
-              <span class="icon is-small">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </button>
+  <body>
+    <div class="wrap">
+      <!-- Link til de ulike sidene -->
+      <nav class="navbar is-white">
+        <div class="navbar-start">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="index.html"><h1>Gyldne Pizza</h1></a>
           </div>
-          <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-item">
-                Alle
-              </a>
+        </div>
+        <div class="navbar-end">
+          <a class="navbar-item" href="employees.html">ansatte</a>
+          <a class="navbar-item" href="menu.html">meny</a>
+          <a class="navbar-item is-active" href="sales.html">salg</a>
+          <a class="navbar-item" href="index.html">restauranter</a>
+        </div>
+      </nav>
 
+      <div class="content">
+        <h2>Salg</h2>
+        <!-- salg.... -->
 
+        <section class="greet-div"></section>
+
+        <section>
+          <div class="dropdown">
+            <div class="dropdown-trigger">
+              <button
+                class="button"
+                aria-haspopup="true"
+                aria-controls="dropdown-menu3"
+              >
+                <span>Velg resturant</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item"> Alle </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        <div class="resturant-sales"></div>
 
-
-      <div class="resturant-sales">
-
-
-
+        <section class="hide-add-section">
+          <div class="field has-addons">
+            <p class="control">
+              <span class="select">
+                <select class="select-sold-item-dropdown"></select>
+              </span>
+            </p>
+            <p class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="Antall (blankt = 1)"
+              />
+            </p>
+            <p class="control">
+              <a class="add-button button is-primary"> Legg til </a>
+            </p>
+          </div>
+        </section>
       </div>
-
-      <section class="hide-add-section">
-
-
-        <div class="field has-addons ">
-          <p class="control">
-            <span class="select">
-
-              <select class="select-sold-item-dropdown">
-
-
-
-              </select>
-            </span>
-          </p>
-          <p class="control">
-            <input class="input" type="text" placeholder="Antall (blankt = 1)">
-          </p>
-          <p class="control">
-            <a class="add-button button is-primary">
-              Legg til
-            </a>
-          </p>
-        </div>
-
-
-      </section>
-
-
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
