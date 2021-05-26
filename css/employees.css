@@ -1,0 +1,19 @@
+#tab-content
+{
+    display: flex;
+    justify-content: center;
+}
+
+#tab-content>div
+{
+display:inline-flex;
+}
+
+#tab-content>div>div
+{
+padding: 1.5em;
+text-align: center;
+}
+
+
+
